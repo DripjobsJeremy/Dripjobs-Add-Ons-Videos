@@ -90,54 +90,59 @@
             box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
         }
 
-        /* Module Header */
+        /* Module Header - Text Based */
         .module-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 0;
-            background: white;
             padding: 20px 20px 15px 20px;
+            background: white;
         }
 
-        .module-logo {
-            width: 100%;
-            height: auto;
+        .module-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 0;
+            gap: 10px;
         }
 
-        .module-logo img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
+        .module-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
         }
 
         /* Video Container */
         .video-container {
             position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            background: #000;
+            margin: 0 20px 15px 20px;
             border-radius: 6px;
             overflow: hidden;
-            margin-bottom: 15px;
-            margin-left: 20px;
-            margin-right: 20px;
-            width: calc(100% - 40px);
             cursor: pointer;
             z-index: 1;
         }
 
         .video-thumbnail {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .video-thumbnail-text {
+            color: rgba(255,255,255,0.3);
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .video-play-overlay {
@@ -190,11 +195,11 @@
             height: 100%;
             background: #000;
             display: none;
+            flex-direction: column;
         }
 
         .video-player.active {
             display: flex;
-            flex-direction: column;
         }
 
         .video-player-content {
@@ -308,7 +313,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 25px;
+            padding: 15px;
             border-radius: 6px;
             z-index: 10;
         }
@@ -321,14 +326,14 @@
             background: white;
             color: #7C3AED;
             border: none;
-            padding: 12px 20px;
+            padding: 10px 16px;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            min-height: 44px;
+            min-height: 40px;
             width: 100%;
-            max-width: 220px;
+            max-width: 180px;
             transition: all 0.2s;
             display: flex;
             align-items: center;
@@ -499,7 +504,7 @@
     <div class="container">
         <!-- Demo Controls -->
         <div class="demo-controls">
-            <h3>🎬 Prototype Demo Controls</h3>
+            <h3>Prototype Demo Controls</h3>
             <label>
                 <input type="checkbox" id="adminModeToggle">
                 <strong>Super Admin Edit Mode</strong> (Toggle to show video management interface)
@@ -512,24 +517,25 @@
             <!-- Production Rates -->
             <div class="module-card">
                 <div class="module-header">
-                    <div class="module-logo">
-                        <img src="data:image/jpeg;base64,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" alt="Production Rates">
+                    <div class="module-title">
+                        <div class="module-icon">$</div>
+                        Production Rates
                     </div>
                 </div>
 
                 <div class="video-container" data-module="production-rates">
-                    <img src="https://via.placeholder.com/640x360/7C3AED/FFFFFF?text=Production+Rates+Demo"
-                         alt="Production Rates Video"
-                         class="video-thumbnail">
+                    <div class="video-thumbnail">
+                        <span class="video-thumbnail-text">Production Rates Demo</span>
+                    </div>
                     <div class="video-play-overlay">
                         <div class="play-button">
                             <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="video-player">
-                        <div class="video-player-content">▶ Production Rates Feature Demo Playing...</div>
+                        <div class="video-player-content">Production Rates Feature Demo Playing...</div>
                         <div class="video-controls">
-                            <button class="control-btn pause-btn">⏸</button>
+                            <button class="control-btn pause-btn">||</button>
                             <div class="progress-bar">
                                 <div class="progress-fill"></div>
                             </div>
@@ -538,10 +544,10 @@
                     </div>
                     <div class="admin-edit-overlay">
                         <button class="admin-edit-btn upload-video-btn" data-module="Production Rates">
-                            ⬆️ Upload New Video
+                            Upload New Video
                         </button>
                         <button class="admin-edit-btn replace-video-btn" data-module="Production Rates">
-                            🔄 Replace Video
+                            Replace Video
                         </button>
                         <p class="admin-edit-text">Current: production-rates.mp4</p>
                     </div>
@@ -559,24 +565,25 @@
             <!-- Job Costing -->
             <div class="module-card">
                 <div class="module-header">
-                    <div class="module-logo">
-                        <img src="https://via.placeholder.com/280x70/FFFFFF/333333?text=Job+Costing" alt="Job Costing">
+                    <div class="module-title">
+                        <div class="module-icon">%</div>
+                        Job Costing
                     </div>
                 </div>
 
                 <div class="video-container" data-module="job-costing">
-                    <img src="https://via.placeholder.com/640x360/7C3AED/FFFFFF?text=Job+Costing+Demo"
-                         alt="Job Costing Video"
-                         class="video-thumbnail">
+                    <div class="video-thumbnail">
+                        <span class="video-thumbnail-text">Job Costing Demo</span>
+                    </div>
                     <div class="video-play-overlay">
                         <div class="play-button">
                             <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="video-player">
-                        <div class="video-player-content">▶ Job Costing Feature Demo Playing...</div>
+                        <div class="video-player-content">Job Costing Feature Demo Playing...</div>
                         <div class="video-controls">
-                            <button class="control-btn pause-btn">⏸</button>
+                            <button class="control-btn pause-btn">||</button>
                             <div class="progress-bar">
                                 <div class="progress-fill"></div>
                             </div>
@@ -585,10 +592,10 @@
                     </div>
                     <div class="admin-edit-overlay">
                         <button class="admin-edit-btn upload-video-btn" data-module="Job Costing">
-                            ⬆️ Upload New Video
+                            Upload New Video
                         </button>
                         <button class="admin-edit-btn replace-video-btn" data-module="Job Costing">
-                            🔄 Replace Video
+                            Replace Video
                         </button>
                         <p class="admin-edit-text">Current: job-costing.mp4</p>
                     </div>
@@ -606,24 +613,25 @@
             <!-- Text Messaging -->
             <div class="module-card">
                 <div class="module-header">
-                    <div class="module-logo">
-                        <img src="https://via.placeholder.com/280x70/FFFFFF/333333?text=Text+Messaging" alt="Text Messaging">
+                    <div class="module-title">
+                        <div class="module-icon">@</div>
+                        Text Messaging
                     </div>
                 </div>
 
                 <div class="video-container" data-module="text-messaging">
-                    <img src="https://via.placeholder.com/640x360/7C3AED/FFFFFF?text=Text+Messaging+Demo"
-                         alt="Text Messaging Video"
-                         class="video-thumbnail">
+                    <div class="video-thumbnail">
+                        <span class="video-thumbnail-text">Text Messaging Demo</span>
+                    </div>
                     <div class="video-play-overlay">
                         <div class="play-button">
                             <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="video-player">
-                        <div class="video-player-content">▶ Text Messaging Feature Demo Playing...</div>
+                        <div class="video-player-content">Text Messaging Feature Demo Playing...</div>
                         <div class="video-controls">
-                            <button class="control-btn pause-btn">⏸</button>
+                            <button class="control-btn pause-btn">||</button>
                             <div class="progress-bar">
                                 <div class="progress-fill"></div>
                             </div>
@@ -632,10 +640,10 @@
                     </div>
                     <div class="admin-edit-overlay">
                         <button class="admin-edit-btn upload-video-btn" data-module="Text Messaging">
-                            ⬆️ Upload New Video
+                            Upload New Video
                         </button>
                         <button class="admin-edit-btn replace-video-btn" data-module="Text Messaging">
-                            🔄 Replace Video
+                            Replace Video
                         </button>
                         <p class="admin-edit-text">Current: text-messaging.mp4</p>
                     </div>
@@ -653,24 +661,25 @@
             <!-- QuickBooks Integration -->
             <div class="module-card">
                 <div class="module-header">
-                    <div class="module-logo">
-                        <img src="https://via.placeholder.com/280x70/FFFFFF/333333?text=QuickBooks" alt="QuickBooks Integration">
+                    <div class="module-title">
+                        <div class="module-icon">Q</div>
+                        QuickBooks
                     </div>
                 </div>
 
                 <div class="video-container" data-module="quickbooks">
-                    <img src="https://via.placeholder.com/640x360/7C3AED/FFFFFF?text=QuickBooks+Demo"
-                         alt="QuickBooks Video"
-                         class="video-thumbnail">
+                    <div class="video-thumbnail">
+                        <span class="video-thumbnail-text">QuickBooks Demo</span>
+                    </div>
                     <div class="video-play-overlay">
                         <div class="play-button">
                             <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="video-player">
-                        <div class="video-player-content">▶ QuickBooks Integration Demo Playing...</div>
+                        <div class="video-player-content">QuickBooks Integration Demo Playing...</div>
                         <div class="video-controls">
-                            <button class="control-btn pause-btn">⏸</button>
+                            <button class="control-btn pause-btn">||</button>
                             <div class="progress-bar">
                                 <div class="progress-fill"></div>
                             </div>
@@ -679,10 +688,10 @@
                     </div>
                     <div class="admin-edit-overlay">
                         <button class="admin-edit-btn upload-video-btn" data-module="QuickBooks">
-                            ⬆️ Upload New Video
+                            Upload New Video
                         </button>
                         <button class="admin-edit-btn replace-video-btn" data-module="QuickBooks">
-                            🔄 Replace Video
+                            Replace Video
                         </button>
                         <p class="admin-edit-text">Current: quickbooks.mp4</p>
                     </div>
